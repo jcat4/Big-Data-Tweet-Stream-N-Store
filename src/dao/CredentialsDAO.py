@@ -9,8 +9,8 @@ class CredentialsDAO(object):
   def __init__(self):
     print("Credentials DAO created")
 
-  def getKey(self):
-    return credentialsDAO.find_one({}, {"key": 1})["key"]
-  
   def getToken(self):
-    return credentialsDAO.find_one({}, {"secret": 1})["secret"]
+    return self.credentialsDAO.find_one({}, {"key": 1})["key"]
+  
+  def getSecret(self):
+    return self.credentialsDAO.find_one({}, {"secret": 1})["secret"]
