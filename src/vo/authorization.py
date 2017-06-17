@@ -16,3 +16,6 @@ class Authorization(object):
     
   def getAPI(self):
     return self.api
+  
+  def getAuth(self):
+    return self.api.auth
