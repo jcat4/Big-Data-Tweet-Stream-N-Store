@@ -22,3 +22,6 @@ class TweetsDAO(object):
     
   def getNumOfDocs(self):
     return self.tweetsDAO.count()
+  
+  def getSizeOfDB(self):
+    return (self.connection.StreamNStore.command("dbstats")["dataSize"] / 1000000) 

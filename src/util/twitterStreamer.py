@@ -16,7 +16,8 @@ class MyStreamListener(tweepy.StreamListener):
     self.usersDAO.updateUsers(status)
     self.tweetsDAO.updateTweets(status)
     sys.stdout.write("Users: %d\t" % (self.usersDAO.getNumOfDocs()))
-    sys.stdout.write("Tweets: %d\r" % (self.tweetsDAO.getNumOfDocs()))
+    sys.stdout.write("Tweets: %d\t" % (self.tweetsDAO.getNumOfDocs()))
+    sys.stdout.write("DB Size: %.2f MB\r" % (self.tweetsDAO.getSizeOfDB()))
     sys.stdout.flush()
     
   def setAPI(self, api):
