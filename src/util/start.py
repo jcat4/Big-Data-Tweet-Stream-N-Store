@@ -10,6 +10,6 @@ streamer = MyStreamListener()
 auth = Authorization()
 streamer.setAPI(auth.getAPI())
 
-print("\nStoring all tweets regarding ", searchTerm, "...")
+print("\nStoring all tweets regarding ", searchTerm, "...", sep = '')
 stream = tweepy.Stream(auth = auth.getAuth(), listener = streamer)
 stream.filter(track=[searchTerm], async = True)

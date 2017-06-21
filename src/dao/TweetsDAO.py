@@ -19,3 +19,6 @@ class TweetsDAO(object):
       "reply_to_user_id":  str(status.in_reply_to_user_id_str)
     }
     self.tweetsDAO.insert(data)
+    
+  def getNumOfDocs(self):
+    return self.tweetsDAO.count()

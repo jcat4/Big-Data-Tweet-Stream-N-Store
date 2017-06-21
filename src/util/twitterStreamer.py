@@ -1,4 +1,6 @@
 import tweepy
+import sys
+from sys import stdout
 
 from dao.UsersDAO import UsersDAO
 from dao.TweetsDAO import TweetsDAO
@@ -11,9 +13,11 @@ class MyStreamListener(tweepy.StreamListener):
     self.tweetsDAO = TweetsDAO()
   
   def on_status(self, status):
-    print("Got Status")
     self.usersDAO.updateUsers(status)
     self.tweetsDAO.updateTweets(status)
+    sys.stdout.write("Users: %d\t" % (self.usersDAO.getNumOfDocs()))
+    sys.stdout.write("Tweets: %d\r" % (self.tweetsDAO.getNumOfDocs()))
+    sys.stdout.flush()
     
   def setAPI(self, api):
     self.api = api    

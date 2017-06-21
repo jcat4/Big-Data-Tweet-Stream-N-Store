@@ -20,3 +20,6 @@ class UsersDAO(object):
     self.usersDAO.update_one(
       {"id": str(status.author.id)}, 
       {"$set": data}, upsert = True)
+    
+  def getNumOfDocs(self):
+    return self.usersDAO.count()
