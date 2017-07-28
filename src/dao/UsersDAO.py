@@ -1,7 +1,10 @@
 import pymongo
 from pymongo import MongoClient
 
-class UsersDAO(object):
+import abc
+from dao.DAOBase import DAOBase
+
+class UsersDAO(DAOBase):
   
   connection = MongoClient()
   usersDAO = connection.StreamNStore.users
@@ -9,7 +12,7 @@ class UsersDAO(object):
   def __init__(self):
     print("UsersDAO object created")
     
-  def updateUsers(self, status):
+  def updateCollection(self, status):
     data = {
       "name":     str(status.author.screen_name),
       "id":       str(status.author.id),

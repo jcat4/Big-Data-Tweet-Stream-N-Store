@@ -13,8 +13,8 @@ class MyStreamListener(tweepy.StreamListener):
     self.tweetsDAO = TweetsDAO()
   
   def on_status(self, status):
-    self.usersDAO.updateUsers(status)
-    self.tweetsDAO.updateTweets(status)
+    self.usersDAO.updateCollection(status)
+    self.tweetsDAO.updateCollection(status)
     sys.stdout.write("Users: %d\t" % (self.usersDAO.getNumOfDocs()))
     sys.stdout.write("Tweets: %d\t" % (self.tweetsDAO.getNumOfDocs()))
     sys.stdout.write("DB Size: %.2f MB\r" % (self.tweetsDAO.getSizeOfDB()))
